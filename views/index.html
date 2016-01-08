@@ -41,15 +41,18 @@
 </head>
 <body>
 <div class="logo"></div>
-<div style="float: right; margin-top: -23px; margin-right: 5px">
-    Welcome <strong><i><%= email %></i></strong>
+<div class="user">
+    Welcome <strong><i><%= email %></i></strong> <a href="/logout">Logout</a>
 </div>
 <div style="background-color: #ff656c;">
     <nav class="menu">
         <ul>
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="/updateprofile">Update Profile</a></li>
-            <li><a href="/logout">Logout</a></li>
+            <li class="current"><a href="index.html">Home </a></li>
+            <li>|</li>
+            <li><a href="/updateprofile">My Profile </a></li>
+            <li>|</li>
+            <li><a href="/updateprofile">My Messages</a></li>
+
         </ul>
     </nav>
 </div>
@@ -62,7 +65,7 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td class="content">Complains & Suggestions</td>
+                            <td class="content"><a href="/complaintsuggestion">Complaints & Suggestions</a></td>
                         </tr>
                         <tr>
                             <td></td>

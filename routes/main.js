@@ -68,6 +68,17 @@ module.exports = function(app){
         }
     });
 
+    //LOGOUT button in index.html
+    app.get('/logout', function(req, res){
+        console.log("Logged out from "+req.session.email);
+        req.session.email=null;
+        res.redirect("/");
+
+    });
+
+    app.get('/registeropen', function(req, res){
+        res.render("register.html");
+    });
 
     //REGISTER BUTTON (register.html)
     app.post('/adduser', function(req, res){
@@ -101,13 +112,6 @@ module.exports = function(app){
         res.render("login.html");
 
     });
-
-
-    app.get('/registeropen', function(req, res){
-        res.render("register.html");
-    });
-
-
 
     app.get('/adminindex.html', function(req, res){
 
@@ -152,14 +156,6 @@ module.exports = function(app){
     });
 
 
-
-
-    app.get('/logout', function(req, res){
-        console.log("Logged out from "+req.session.email);
-        req.session.email=null;
-        res.redirect("/");
-
-    });
 
 
     app.get('/complaintsuggestion', function(req, res){
