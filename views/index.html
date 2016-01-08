@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>HippoFeedo - Home</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-messages.js"></script>
+    <script src="lib/angular-resource.min.js"></script>
+
+    <script>
+        var loginApp = angular.module('loginApp', []);
+
+        loginApp.controller('loginController', function($scope){
+        });
+    </script>
+
+    <script type="text/javascript">
+        function myFunction() {
+            var url = window.location.search;
+            if(url=="?complainSubmitted")
+            {
+                alert("Your complaint has been successfully submitted !")
+            }
+
+            if(url=="?ideaSubmitted")
+            {
+                alert("Your idea has been successfully submitted !")
+            }
+
+            if(url=="?suggestionSubmitted")
+            {
+                alert("Your suggestion has been successfully submitted !")
+            }
+        }
+        window.onload = myFunction;
+
+    </script>
+
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="logo"></div>
+<div style="float: right; margin-top: -23px; margin-right: 5px">
+    Welcome <strong><i><%= email %></i></strong>
+</div>
+<div style="background-color: #ff656c;">
+    <nav class="menu">
+        <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="/updateprofile">Update Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+</div>
+    <div class="outer">
+        <table class="table">
+            <tr>
+                <td class="side">
+                    <table class="inner">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="content">Complains & Suggestions</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="content">Employee Tracker</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="mid">
+                    <table class="inner">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="content">Hippo Updates</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="content">Employee Experience Calculator</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="side">
+                    <table class="inner">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="content">Product Ideas</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="content">Waiting Queue</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

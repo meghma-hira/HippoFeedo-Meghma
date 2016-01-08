@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>HippoFeedo Login Page</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-messages.js"></script>
+    <script src="lib/angular-resource.min.js"></script>
+
+    <script>
+        var loginApp = angular.module('loginApp', []);
+
+        loginApp.controller('loginController', function($scope){
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        function myFunction() {
+            var url = window.location.search;
+            if(url=="?success")
+            {
+                alert("You have been successfully registered!! Kindly login")
+            }
+
+            if(url=="?error")
+            {
+                alert("Invalid Credentials!! Please try again...")
+            }
+
+            if(url=="?loggedout")
+            {
+                alert("You have been looged out from HippoFeedo")
+            }
+        }
+        window.onload = myFunction;
+
+    </script>
+
+    <link rel="stylesheet" href="css/loginregister.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+    <div class="logo"></div>
+    <header></header>
+
+        <div id="form"  class="form-block"  ng-app="loginApp" ng-controller="loginController">
+            <form name="loginForm" novalidate method="post" action="/checkuser">
+
+                <div>
+                    <h1>Login</h1>
+                    <div>
+                        <input type="email" name="email" id="email" ng-model="email" required placeholder="Email" />
+                        <div class="error" style="color: red" ng-if="loginForm.email.$touched" ng-messages="loginForm.email.$error">
+                            <span ng-show = "loginForm.email.$error.required">Email is required.</span>
+                            <span ng-show = "loginForm.email.$error.email">Email is invalid</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="password" name="password" id="password" ng-model="password" required placeholder="Password" />
+                        <div class="error" style = "color:red" ng-if="loginForm.password.$touched" ng-show = "loginForm.password.$error">
+                            <span ng-show = "loginForm.password.$error.required">Password is required</span>
+                        </div>
+                    </div>
+
+                    <input type="submit" id="login" class="button" name="login" ng-model="login" value="Login" ng-disabled="loginForm.email.$error.email || loginForm.email.$error.required
+                                                                                    || loginForm.password.$error.required || loginForm.password.$error.minlength">
+                </div>
+
+
+            </form>
+            <form action="/registeropen" method="get" >
+                <input type="submit" class="button" value="Click here to Register">
+            </form>
+        </div>
+
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Register - HippoFeedo</title>
+
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-messages.js"></script>
+    <script src="lib/angular-resource.min.js"></script>
+    <script src="../app.js"></script>
+
+    <script>
+        var registerApp = angular.module('registerApp', []);
+        registerApp.controller('registerController', function($scope){
+        });
+    </script>
+
+    <script type="text/javascript">
+        function myFunction() {
+            var url = window.location.search;
+            if(url=="?error")
+            {
+                alert("The Email and/or EmployeeId already exists!!")
+            }
+        }
+        window.onload = myFunction;
+
+    </script>
+
+    <link rel="stylesheet" href="css/loginregister.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="logo"></div>
+    <!--Register Form-->
+    <div id="form" class="form-block" ng-app="registerApp" ng-controller="registerController">
+        <form  name="registerForm" method="post" id="myForm" action="/adduser" novalidate>
+
+            <!--<h2>| HippoFeedo |</h2>
+            <hr>
+            <p style="text-align:center" >Please enter all the fields</p>-->
+
+            <div>
+                <h1>Register</h1>
+                <div>
+                <input type="text" name="name" ng-model="name" required placeholder="Name" minlength="4">
+                <div class="error" style = "color:red" ng-if="registerForm.name.$touched" ng-show = "registerForm.name.$error">
+                    <span ng-show = "registerForm.name.$error.required">Name is required.</span>
+                    <span ng-show = "registerForm.name.$error.minlength">Name is too short.</span>
+                </div>
+                </div>
+
+                <div>
+                <input type="email" name="email" ng-model="email" required placeholder="Email"  >
+                <div class="error" style="color: red" ng-if="registerForm.email.$touched" ng-messages="registerForm.email.$error">
+                    <span ng-show = "registerForm.email.$error.required">Email is required.</span>
+                    <span ng-show = "registerForm.email.$error.email">Email is invalid</span>
+                </div>
+                </div>
+
+                <div>
+                <input type="text" name="employeeid" ng-model="employeeid" required ng-pattern="/^(\d)+$/"  placeholder="Employee Id">
+                <div class="error" style = "color:red" ng-if="registerForm.employeeid.$touched" ng-messages="registerForm.employeeid.$error" >
+                    <span ng-show = "registerForm.employeeid.$error.required">Employee Id is required</span>
+                    <span ng-show = "registerForm.employeeid.$error.pattern">Employee Id must be number</span>
+                </div>
+                </div>
+
+                <div>
+                <input type="password" name="password" ng-model="password" required minlength="8" placeholder="Password">
+                <div class="error" style = "color:red" ng-if="registerForm.password.$touched" ng-show = "registerForm.password.$error">
+                    <span ng-show = "registerForm.password.$error.required">Password is required</span>
+                    <span ng-show = "registerForm.password.$error.minlength">Password is too short</span>
+                </div>
+                </div>
+
+                <div>
+                <input  type="password" name="cpassword" ng-model="cpassword" ng-pattern="password" required placeholder="Confirm Password" >
+                <div class="error" style = "color:red" ng-if="registerForm.cpassword.$touched" ng-show = "registerForm.cpassword.$error">
+                    <span ng-show = "registerForm.cpassword.$error.required">Confirm your password</span>
+                    <span ng-show = "registerForm.cpassword.$error.pattern">Password does not match</span>
+
+                </div>
+                </div>
+
+                <!--<input type="submit" name="submitBtn" ng-model="submitBtn" value="Register" />-->
+                <input class="button" type="submit" value="Register" id="submitBtn" name="submitBtn" ng-model="submitBtn" ng-disabled="registerForm.name.$error.required || registerForm.name.$error.minlength
+                                                                                    || registerForm.email.$error.email || registerForm.email.$error.required
+                                                                                    || registerForm.employeeid.$error.required || registerForm.employeeid.$error.pattern
+                                                                                    || registerForm.password.$error.required || registerForm.password.$error.minlength
+                                                                                    || registerForm.cpassword.$error.required || registerForm.cpassword.$error.pattern">
+
+
+            </div>
+        </form>
+        <form action="/loginopen" method="get">
+            <input type="submit" class="button" value="Already Registered? Click here!">
+        </form>
+    </div>
+
+</body>
+</html>

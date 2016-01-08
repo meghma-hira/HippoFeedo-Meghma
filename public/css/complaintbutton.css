@@ -1,0 +1,75 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+
+button:before {
+    font-family: 'entypo', sans-serif;
+    color: white;
+    position: absolute;
+    right: 40px;
+    font-size: 2em;
+    top: 25%;
+    z-index: 10;
+}
+
+
+body {
+    background-color: #f2f2f2;
+}
+
+section {
+    width: 100%;
+    padding: 1em 0;
+}
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: #40B0F9;
+    letter-spacing: 1px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: normal;
+    width: 70%;
+    max-width: 500px;
+    position: relative;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 1.4em;
+    text-align: left;
+    padding: 2em 5.5em;
+
+    @media (max-width: 600px) {
+    padding: 1.5em 2.5em;
+    font-size: 1em;
+                                }
+&:hover{
+     cursor: pointer;
+        }
+&:after {
+     position: absolute;
+     content: "";
+     top: 0;
+     bottom: 0;
+     right: 0;
+     width: 20%;
+     background-color: #53bafd;
+     transition: width 0.7s;
+
+@media (max-width: 600px) {
+    width: 30%;
+                            }
+        }
+}
+
+button:hover:after {
+    transition: width 0.7s;
+    width: 140px;
+    cursor: pointer;
+@media (max-width: 600px) {
+    width: 120px;
+}
+}
